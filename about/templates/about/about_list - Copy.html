@@ -1,0 +1,151 @@
+{% extends "base.html" %}
+{% block body %}
+{% load static %}
+
+
+    <!-- Breadcrumb Area Start -->
+    <section class="peulis-breadcrumb-area">
+      <div class="breadcrumb-top">
+          <div class="container">
+              <div class="col-lg-12">
+                  <div class="breadcrumb-box">
+                      <h2>About Us</h2>
+                      <ul class="breadcrumb-inn">
+                        
+                      </ul>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </section>
+  <!-- Breadcrumb Area End -->
+
+
+  <!-- About Page Start -->
+  <section class="peulis-about-page section_70">
+      <div class="container">
+          <div class="row">
+            {% for about in object_list %}
+              <div class="col-lg-6">
+                  <div class="about-page-left">
+                      <h3>About Us</h3>
+                      <h2>Who We Are</h2>
+                      <p>{{about.Who_We_Are}}</p>
+                      <div class="about-signature">
+                          <div class="signature-left">
+                            <img src="{{about.Who_image.url}}" alt="signature">
+                          </div>
+                          <div class="signature-right">
+
+                          </div>
+                      </div>
+                  </div>
+              </div>
+              <div class="col-lg-6">
+                  <div class="about-page-right">
+                      <img src="{{about.Who_image.url}}" alt="about page" />
+                  </div>
+              </div>
+          </div>
+      </div>
+  </section>
+  <!-- About Page End -->
+
+
+  <!-- Story Area Start -->
+  <section class="peulis-story-area">
+      <div class="story-area-top">
+          <div class="container">
+              <div class="row">
+                  <div class="col-lg-12">
+                      <div class="story-box">
+                          <h2>Our Story</h2>
+                          <p>{{about.Our_Story}}</p>
+                      </div>
+
+                  </div>
+              </div>
+          </div>
+      </div>
+      <div class="story-area-bottom">
+          <div class="container">
+              <div class="row">
+                  <div class="col-lg-12">
+                      <div class="story-box">
+                          <h2>Our Values</h2>
+                          <p>{{about.Our_Values2}}</p>
+                      </div>
+                {% endfor %}
+
+                  </div>
+              </div>
+
+          </div>
+      </div>
+  </section>
+  <!-- Story Area End -->
+
+
+  <!-- Destination Area Start -->
+  <section class="peulis-destination-area section_70">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="site-heading">
+                    <h2>Destinations</h2>
+                    <p>Lorem ipsum dolor sit amet, conseetuer adipiscing elit. Aenan comdo igula eget. Aenean massa cum sociis Theme natoque.</p>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="destination-slider owl-carousel">
+                    <div class="single-destination">
+                        <a href="#">
+                            <div class="destination-image">
+                                <img src="{% static  'assets/img/l.jpg'%}" alt="destination" />
+                                <div class="destination-title">
+                                    <h3>Luxor</h3>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="single-destination">
+                        <a href="#">
+                            <div class="destination-image">
+                                <img src="{% static  'assets/img/as.jpg'%}" alt="destination" />
+                                <div class="destination-title">
+                                    <h3>Aswan</h3>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="single-destination">
+                        <a href="#">
+                            <div class="destination-image">
+                                <img src="{% static  'assets/img/Hurghada_41210.jpg'%}" alt="destination" />
+                                <div class="destination-title">
+                                    <h3>Hurghada</h3>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="single-destination">
+                        <a href="#">
+                            <div class="destination-image">
+                                <img src="{% static  'assets/img/c.jpg'%}" alt="destination" />
+                                <div class="destination-title">
+                                    <h3>Cairo</h3>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Destination Area End -->
+
+
+{% endblock body%}

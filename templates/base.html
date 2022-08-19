@@ -1,0 +1,370 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+<head>
+<title>alfriendvoyage</title>
+
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- favicon -->
+    <link rel="shortcut icon" type="image/png" href=" {% static  'assetsimages/favicon.png'%}">
+    <!-- wow css -->
+
+    <link rel="stylesheet" href=" {% static  'assets/css/animate.css'%}">
+    <!-- magnific popup -->
+    <link rel="stylesheet" href="  {% static  'assets/css/magnific-popup.css'%}">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="  {% static  'assets/css/bootstrap.min.css'%}">
+    <!-- Boxicons CSS -->
+    <link rel="stylesheet" href=" {% static  'assets/css/boxicons.min.css'%}">
+
+    <!-- Icon Font CSS -->
+    <link rel="stylesheet" href="{% static  'assets/font/flaticon.css'%}">
+    <!-- Owl Carousel CSS -->
+
+    <link rel="stylesheet" href="{% static  'assets/css/owl.carousel.min.css'%}">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="{% static  'assets/css/style.css'%}">
+    <link rel="stylesheet" href="{% static  'assets/css/responsive.css'%}">
+
+</head>
+<body>
+
+    <!-- Start Preloader Area -->
+    <div class="preloader">
+        <div class="loader loader1">
+            <span style="--i:1;"></span>
+            <span style="--i:2;"></span>
+            <span style="--i:3;"></span>
+            <span style="--i:4;"></span>
+            <span style="--i:5;"></span>
+            <span style="--i:6;"></span>
+            <span style="--i:7;"></span>
+            <span style="--i:8;"></span>
+            <span style="--i:9;"></span>
+            <span style="--i:10;"></span>
+            <span style="--i:11;"></span>
+            <span style="--i:12;"></span>
+            <span style="--i:13;"></span>
+            <span style="--i:14;"></span>
+            <span style="--i:15;"></span>
+            <span style="--i:16;"></span>
+            <span style="--i:17;"></span>
+            <span style="--i:18;"></span>
+            <span style="--i:19;"></span>
+            <span style="--i:20;"></span>
+            <div class="rocket"></div>
+        </div>
+    </div>
+    <!-- End Preloader Area -->
+
+
+         <!-- =============== Topbar area start =============== -->
+         <div class="topbar-area">
+             <div class="container">
+                 <div class="row">
+                      {% for Info in Infoo %}
+                     <div class="col-lg-5 col-md-5 tob-contact-row">
+                         <div class="topbar-contact">
+                             <ul>
+                                 <li><i class='bx bxs-phone'></i><a href="{{Info.phone_number}}">+{{Info.phone_number}}</a></li>
+                                 <li><i class='bx bxs-envelope'></i><a href=" {{Info.email}}">  {{Info.email}}</a></li>
+                             </ul>
+                         </div>
+                     </div>
+                     <div class="col-lg-4 col-md-6 col-sm-6 col-xs-6 col-6">
+                         <div class="topbar-social">
+                             <ul>
+                                 <li>
+                                     <a href="{{Info.instagram}}"><i class='bx bxl-instagram'></i></a>
+                                 </li>
+                                 <li>
+                                     <a href="{{Info.facebook}}"><i class='bx bxl-facebook'></i></a>
+                                 </li>
+                                 <li>
+                                     <a href="{{Info.twitter}}"><i class='bx bxl-twitter'></i></a>
+                                 </li>
+                                 <li>
+                                     <a href="{{Info.WhatsApp}}"><i class='bx bxl-whatsapp'></i></a>
+                                 </li>
+                             </ul>
+                         </div>
+
+                     </div>
+                     {% endfor %}
+                     <div class="col-lg-3 col-md-6 col-sm-6 col-xs-6 col-6">
+                           <div class="custom-select languege-select">
+                                <select>
+                                  <option value="0">ENG</option>
+                                  <option value="1">BAN</option>
+                                  <option value="2">FSP</option>
+                                  <option value="3">CHI</option>
+                                </select>
+                            </div>
+                     </div>
+                 </div>
+
+             </div>
+         </div>
+         <!-- =============== Topbar area end =============== -->
+
+
+    <!-- ===============  header area start =============== -->
+    <header>
+        <div class="header-area">
+            <div class="container">
+                <div class="row">
+
+                    <div class="col-lg-2 col-md-12 col-sm-12 col-xs-12">
+                       <div class="navbar-wrap">
+                        <div class="logo d-flex justify-content-between">
+
+                            <a href="{% url 'Post:index'%}" class="navbar-brand"> <img src="    {% static  'assets/images/logo.png'%}" alt=""></a>
+                        </div>
+                        <div class="navbar-icons">
+                            <div class="searchbar-open">
+                                <i class="flaticon-magnifier"></i>
+                            </div>
+                            <div class="user-dropdown-icon">
+                                <i class="flaticon-user"></i>
+                                <div class="account-dropdown">
+                                    <ul>
+
+
+                                      <li class="account-el">
+                                          {% if request.user.is_authenticated %}
+                                            <i class='bx bx-log-in-circle'></i>
+                                              <a href=" {% url 'logout'%}">logout</a>
+                                              <li class="account-el">
+                                                  <i class='bx bxs-user-account'></i>
+                                                  <a href="{% url 'accounts:profile_edit'%}">profile_edit</a>
+                                              </li>
+
+                                            </li>
+                                               {% else %}
+                                               <li class="account-el">
+                                                 <i class='bx bx-log-in-circle'></i>
+                                                  <a href="{% url 'accounts:user_login'%}">Login</a>
+                                        <li class="account-el">
+                                            <i class='bx bx-user-pin'></i>
+                                            <a href="{% url 'accounts:signup'%}">Sign in</a>
+                                        </li>
+                                        {% endif %}
+                                    </li>
+                                    </ul>
+                                    <ul>
+
+                                    </ul>
+                                  </div>
+                            </div>
+                            <div class="mobile-menu d-flex ">
+                                <div class="top-search-bar m-0 d-block d-xl-none">
+                                </div>
+
+                                <a href="javascript:void(0)" class="hamburger d-block d-xl-none">
+                                    <span class="h-top"></span>
+                                    <span class="h-middle"></span>
+                                    <span class="h-bottom"></span>
+                                </a>
+                            </div>
+                        </div>
+                       </div>
+                    </div>
+
+                    <div class="col-lg-10 col-md-10 col-sm-10 col-xs-10">
+                        <nav class="main-nav">
+                            <div class="navber-logo-sm">
+
+                                <img src="{% static  'assets/images/logo-2.png'%}" alt="" class="img-fluid">
+                            </div>
+                            <ul>
+                              <li><a href="{% url 'Post:index'%}">Home </a></li>
+
+                                <li><a href="{% url 'about:aboutList'%}">About us </a></li>
+                                <li><a href="{% url 'Tours:Tourslist'%}">Tours </a></li>
+                                <li><a href="#">Destinations </a></li>
+                                <li><a href="{% url 'Post:all_posts' %}" class="sub-item">Blog </a></li>
+
+
+                                <li><a href="{% url 'contact' %}">Contact Us </a></li>
+                            </ul>
+                            <div class="navbar-icons-2">
+                                <div class="searchbar-open">
+                                    <i class="flaticon-magnifier"></i>
+                                </div>
+                                <div class="user-dropdown-icon">
+                                    <i class="flaticon-user"></i>
+                                    <div class="account-dropdown">
+                                        <ul>
+
+
+                                          <li class="account-el">
+                                              {% if request.user.is_authenticated %}
+                                                <i class='bx bx-log-in-circle'></i>
+                                                  <a href=" {% url 'logout'%}">logout</a>
+                                                  <li class="account-el">
+                                                      <i class='bx bxs-user-account'></i>
+                                                      <a href="{% url 'accounts:profile_edit'%}">profile_edit</a>
+                                                  </li>
+
+                                                </li>
+                                                   {% else %}
+                                                   <li class="account-el">
+                                                     <i class='bx bx-log-in-circle'></i>
+                                                      <a href="{% url 'accounts:user_login'%}">Login</a>
+                                            <li class="account-el">
+                                                <i class='bx bx-user-pin'></i>
+                                                <a href="{% url 'accounts:signup'%}">Sign in</a>
+                                            </li>
+                                            {% endif %}
+                                        </li>
+                                        </ul>
+                                        <ul>
+
+                                        </ul>
+                                      </div>
+                                </div>
+                            </div>
+                            <div class="sidebar-contact">
+                              {% for Info in Infoo %}
+                                <ul>
+                                    <li class="sidebar-single-contact"><i class='bx bxs-phone'></i> <a href="{{Info.phone_number}}">{{Info.phone_number}}</a></li>
+                                    <li class="sidebar-single-contact"><i class='bx bxs-envelope'></i><a href="{{Info.email}}">{{Info.email}}</a></li>
+                                </ul>
+                            </div>
+                             {% endfor %}
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <form>
+                <div class="main-searchbar">
+                    <div class="searchbar-close">
+                        <i class='bx bx-x'></i>
+                    </div>
+                    <input type="text" placeholder="Search Here......">
+                    <div class="searchbar-icon">
+                        <i class='bx bx-search'></i>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </header>
+    <!-- ===============  header area end =============== -->
+
+        {% block body %}
+        {% endblock body%}
+
+
+            <!-- ==============  Footer area start================= -->
+            <div class="footer-area">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-4 col-md-12">
+                            <div class="footer-info">
+                                <div class="footer-logo">
+                                    <img src=" {% static  'assets/images/logo-2.png'%}" alt="" class="img-fluid">
+                                </div>
+                                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aliquid maxime aut ut voluptate
+                                    dolorum nisi ducimus ratione</p>
+                                <div class="footer-social-icons">
+                                      {% for Info in Infoo %}
+                                    <h5>Follow Us:</h5>
+                                    <ul>
+                                        <li><a href="{{Info.facebook}}"><i class='bx bxl-facebook'></i></a></li>
+                                        <li><a href="{{Info.instagram}}"><i class='bx bxl-instagram'></i></a></li>
+                                        <li><a href="{{Info.twitter}"><i class='bx bxl-twitter'></i></a></li>
+                                        <li><a href="{{Info.WhatsApp}}"><i class='bx bxl-dribbble'></i></a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-8 col-md-12">
+                            <div class="row">
+                                <div class="col-lg-5 col-md-5 col-sm-7">
+                                    <div class="footer-links">
+                                        <h5 class="widget-title">Contact us</h5>
+
+                                        <div class="contact-box">
+                                            <span><i class="bx bx-phone"></i></span>
+                                            <div>
+                                                <a href="{{Info.phone_number}}">{{Info.phone_number}}</a>
+
+                                            </div>
+                                        </div>
+                                        <div class="contact-box">
+                                            <span><i class="bx bx-mail-send"></i></span>
+                                            <div>
+                                                <a href="{{Info.email}}">{{Info.email}}</a>
+
+                                            </div>
+                                        </div>
+                                        <div class="contact-box">
+                                            <span><i class="bx bx-location-plus"></i></span>
+                                            <div>
+                                                <a href="#"> {{Info.place}} <br>
+                                                  .</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                               {% endfor %}
+                                <div class="col-lg-3 col-md-3 col-sm-5">
+                                    <div class="footer-links">
+                                        <h5 class="widget-title">support</h5>
+                                        <div class="category-list">
+                                           <ul>
+                                               <li><a href="{% url 'contact' %}">Contact us</a></li>
+                                               <li><a href="{% url 'about:aboutList'%}">About us</a></li>
+                                               <li><a href="{% url 'about:aboutList'%}">Services</a></li>
+                                               <li><a href="{% url 'Post:all_posts' %}">our Blogs</a></li>
+                                           </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4 col-md-4">
+                                    <div class="footer-links payment-links">
+                                        <h5 class="widget-title">We Accepts:</h5>
+                                        <div class="payment-cards">
+                                            <img src=" {% static  'assets/images/payment/payment-card-2.png'%}" alt="" class="img-fluid">
+                                            <img src="{% static  'assets/images/payment/payment-card-1.png'%}" alt="" class="img-fluid">
+                                            <img src="{% static  'assets/images/payment/payment-card-3.png'%}" alt="" class="img-fluid">
+                                            <img src="{% static  'assets/images/payment/payment-card-4.png'%}" alt="" class="img-fluid">
+                                            <img src="{% static  'assets/images/payment/payment-card-3.png'%}" alt="" class="img-fluid">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                       <div class="col-lg-12">
+                        <div class="copyrigth-area">
+                          <p>All rights reserved . Developed By <a href="#"> profe mahmoud</a></p>
+                        </div>
+                       </div>
+                    </div>
+
+                </div>
+            </div>
+            <!-- ==============  Footer area end================= -->
+
+
+
+        <!--Javascript -->
+
+        <script src="{% static 'assets/js/jquery-3.6.0.min.js'%}"></script>
+        <script src="{% static 'assets/js/owl.carousel.min.js'%}"></script>
+        <script src="{% static 'assets/js/bootstrap.min.js'%}"></script>
+        <script src="{% static 'assets/js/jquery-ui.min.js'%}"></script>
+        <script src="{% static 'assets/js/popper.min.js.js'%}"></script>
+        <script src="{% static 'assets/js/jquery.magnific-popup.min.js'%}"></script>
+        <script src="{% static 'assets/js/wow.min.js'%}"></script>
+        <script src="{% static 'assets/js/typed.js'%}"></script>
+        <!-- Custom JavaScript -->
+          <script src="{% static 'assets/js/main.js'%}"></script>
+
+
+    </body>
+    </html>

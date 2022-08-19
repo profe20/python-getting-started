@@ -1,0 +1,421 @@
+{% extends "base.html" %}
+{% load static %}
+{% block body %}
+{% load crispy_forms_tags %}
+{% load bootstrap4 %}
+
+
+    <!-- ===============  breadcrumb area start =============== -->
+    <div class="breadcrumb-area">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12">
+                    <div class="breadcrumb-wrap">
+                        <h2>Tour  Details</h2>
+                        <ul class="breadcrumb-links">
+                            <li>
+                                <a href="{% url 'Post:index'%}">Home</a>
+                                <i class="bx bx-chevron-right"></i>
+                            </li>
+                            <li>Tour  Details</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- ===============  breadcrumb area end =============== -->
+
+    <div class="package-details-wrapper pt-120">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8">
+                    <div class="package-details">
+                        <div class="package-thumb">
+
+                            <img src="{{object.image.url}}" alt="">
+
+                        </div>
+                        <div class="package-header">
+                            <div class="package-title">
+                                <h3>{{object.name}}</h3>
+                                <strong><i class="flaticon-arrival"></i>
+
+                                </strong>
+                            </div>
+                            <div class="pd-review">
+                                <p>Excellent</p>
+                                <ul>
+                                    <li><i class='bx bxs-star'></i></li>
+                                    <li><i class='bx bxs-star'></i></li>
+                                    <li><i class='bx bxs-star'></i></li>
+                                    <li><i class='bx bxs-star'></i></li>
+                                    <li><i class='bx bx-star' ></i></li>
+                                </ul>
+                                <p>800 Review</p>
+                            </div>
+                        </div>
+                        <div class="p-short-info">
+                            <div class="single-info">
+                                <i class="flaticon-clock"></i>
+                                <div class="info-texts">
+                                    <strong>Duration</strong>
+                                    <p>{{object.Duration}}</p>
+                                </div>
+                            </div>
+                            <div class="single-info">
+                                <i class="flaticon-footprints"></i>
+                                <div class="info-texts">
+                                    <strong>Tour Type</strong>
+                                    <p>{{object.TripType}}</p>
+                                </div>
+                            </div>
+                            <div class="single-info">
+                                <i class="flaticon-traveller"></i>
+                                <div class="info-texts">
+                                    <strong>Group Size</strong>
+                                    <p>{{object.GroupSize}}</p>
+                                </div>
+                            </div>
+                            <div class="single-info">
+                                <i class="flaticon-translate"></i>
+                                <div class="info-texts">
+                                    <strong>Languages</strong>
+                                    <p>Any Language</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="package-tab">
+                            <ul class="nav nav-pills" id="pills-tab" role="tablist">
+                                <li class="nav-item" role="presentation">
+                                  <button class="nav-link active" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-home" type="button" role="tab" aria-controls="pills-home" aria-selected="true"><i class="flaticon-info"></i>
+                                    Information</button>
+                                </li>
+                                <li class="nav-item" role="presentation">
+                                  <button class="nav-link" id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#pills-profile" type="button" role="tab" aria-controls="pills-profile" aria-selected="false"><i class="flaticon-clipboard"></i>
+                                    Travel_ Plan</button>
+                                </li>
+                                <li class="nav-item" role="presentation">
+                                  <button class="nav-link" id="pills-contact-tab" data-bs-toggle="pill" data-bs-target="#pills-contact" type="button" role="tab" aria-controls="pills-contact" aria-selected="false"> <i class="flaticon-gallery"></i>
+                                    Our Gallary</button>
+                                </li>
+                              </ul>
+                              <div class="tab-content p-tab-content" id="pills-tabContent">
+                                <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
+                                    <div class="row">
+                                        <div class="col-lg-12">
+                                            <div class="tab-content-1">
+                                                <div class="p-overview">
+                                                 <h5>Overview</h5>
+                                                 <p> {{object.information}}.</p>
+                                                </div>
+                                                <div class="p-review">
+
+                                                </div>
+                                                <div class="p-review-input">
+
+                                                </div>
+                                             </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
+                                    <div class="tab-content-2">
+                                        <div class="row">
+                                            <div class="col-lg-12">
+                                                <div class="p-timeline-overview">
+                                                    <h5>Overview</h5>
+                                                    <p>{{object.Itinerary}}.</p>
+                                                </div>
+                                                <ul class="p-timeline">
+                                                    <li>
+
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">
+                                    <div class="tab-contant-3">
+                                        <div class="row">
+                                            <div class="col-lg-8 col-md-8">
+                                                <div class="package-grid-one">
+
+                                                    <div class="single-grid">
+                                                        <a class="g-img-sm-1 main-gallary" href="assets/images/gallary/gl-1.png">
+                                                            <img src="assets/images/gallary/gl-1.png" alt="">
+                                                        </a>
+                                                        <a class="g-img-sm-2 main-gallary" href="assets/images/gallary/gl-2.png">
+                                                            <img src="assets/images/gallary/gl-2.png" alt="">
+                                                        </a>
+                                                        <a class="g-img-md main-gallary" href="assets/images/gallary/g-xxl-1.png">
+                                                            <img src="assets/images/gallary/g-xxl-1.png" alt="">
+                                                        </a>
+                                                    </div>
+                                                    <div class="single-grid mt-24">
+                                                        <a class="g-img-sm-1 main-gallary" href="assets/images/gallary/gl-2.png">
+                                                            <img src="assets/images/gallary/gl-2.png" alt="">
+                                                        </a>
+                                                        <a class="g-img-sm-2 main-gallary" href="assets/images/gallary/gl-4.png">
+                                                            <img src="assets/images/gallary/gl-4.png" alt="">
+                                                        </a>
+                                                        <a class="g-img-md main-gallary" href="assets/images/gallary/g-xxl-2.png">
+                                                            <img src="assets/images/gallary/g-xxl-2.png" alt="">
+                                                        </a>
+                                                    </div>
+                                                    <div class="single-grid mt-24">
+                                                        <a class="g-img-sm-1 main-gallary" href="assets/images/gallary/gl-5.png">
+                                                            <img src="assets/images/gallary/gl-5.png" alt="">
+                                                        </a>
+                                                        <a class="g-img-sm-2 main-gallary" href="assets/images/gallary/gl-6.png">
+                                                            <img src="assets/images/gallary/gl-6.png" alt="">
+                                                        </a>
+                                                        <a class="g-img-md main-gallary" href="assets/images/gallary/g-xxl-3.png">
+                                                            <img src="assets/images/gallary/g-xxl-3.png" alt="">
+                                                        </a>
+                                                    </div>
+                                                    <div class="single-grid mt-24">
+                                                        <a class="g-img-sm-1 main-gallary" href="assets/images/gallary/gl-17.png">
+                                                            <img src="assets/images/gallary/gl-17.png" alt="">
+                                                        </a>
+                                                        <a class="g-img-sm-2 main-gallary" href="assets/images/gallary/gl-16.png">
+                                                            <img src="assets/images/gallary/gl-16.png" alt="">
+                                                        </a>
+                                                        <a class="g-img-md main-gallary" href="assets/images/gallary/g-xxl-4.png">
+                                                            <img src="assets/images/gallary/g-xxl-4.png" alt="">
+                                                        </a>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                            <div class="col-lg-4 col-md-4">
+                                                <div class="package-grid-two">
+                                                    <div class="single-grid-2">
+                                                        <a class="main-gallary" href="assets/images/gallary/g-xl-1.png">
+                                                            <img src="assets/images/gallary/g-xl-1.png" alt="">
+                                                        </a>
+                                                    </div>
+                                                    <div class="single-grid-2 mt-24">
+                                                        <a class="single-grid-2 main-gallary mt-30" href="assets/images/gallary/g-xl-1.png">
+                                                            <img src="assets/images/gallary/g-xl-2.png" alt="">
+                                                        </a>
+                                                    </div>
+                                                    <div class="single-grid-2 mt-24">
+                                                        <a class="main-gallary mt-30" href="assets/images/gallary/g-xl-1.png">
+                                                            <img src="assets/images/gallary/g-xl-3.png" alt="">
+                                                        </a>
+                                                    </div>
+                                                    <div class="single-grid-2 mt-24">
+                                                        <a class="main-gallary mt-30" href="assets/images/gallary/g-xl-1.png">
+                                                            <img src="assets/images/gallary/g-xl-4.png" alt="">
+                                                        </a>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                              </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="package-d-sidebar">
+                        <div class="row">
+                            <div class="col-lg-12 col-md-6">
+                                <div class="p-sidebar-form">
+                                  <h3>Book This Tour</h3>
+                                  <form method="post" class="form">
+                                        {% csrf_token %}
+
+                                     {% bootstrap_form form %}
+                                     {% buttons %}
+
+                                     <div class="col-lg-12">
+                                         <input type="submit" value="Book Now">
+                                     </div>
+                                     {% endbuttons %}
+                                  </form>
+                               </div>
+
+
+                            <div class="col-lg-12 col-md-6">
+                                <div class="p-sidebar-cards mt-40">
+                                    <h5 class="package-d-head">Related Tours</h5>
+                                    {% for Tours in related %}
+                                    <ul class="package-cards">
+                                        <li class="package-card-sm">
+                                            <div class="p-sm-img">
+                                                <img src="{{Tours.image.url}}" alt="">
+                                            </div>
+                                            <div class="package-info">
+                                                <div class="package-date-sm">
+                                                    <strong><i class="flaticon-calendar"></i>{{object.name}}</strong>
+                                                </div>
+                                                <h3><i class="flaticon-arrival"></i>
+                                                    <a href="package-details.html">{{Tours.category}}</a>
+                                                </h3>
+                                                <h5><span>{{Tours.price}}</span>/ Per Person</h5>
+                                            </div>
+                                        </li>
+                                        {% endfor %}
+
+
+
+                                    </ul>
+
+                                </div>
+                            </div>
+
+
+
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+     <!-- ===============  faq wrapper start =============== -->
+    <div class="faq-wrapper pt-120">
+        <div class="container">
+           <div class="row">
+                <div class="col-lg-7">
+                    <div class="faq-wrap">
+
+                       <div class="accordion-box pt-40">
+                        <h5>Important links</h5>
+                        {% for Important_links in relatede %}
+                        <div class="accordion" id="accordionExample2">
+
+                            <div class="accordion-item">
+                              <h2 class="accordion-header" id="headingFive">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFive" aria-expanded="true" aria-controls="collapseFive">
+                                    Charitable Giving: <i class='bx bx-chevron-down'></i>
+                                </button>
+                              </h2>
+                              <div id="collapseFive" class="accordion-collapse collapse" aria-labelledby="headingFive" data-bs-parent="#accordionExample2">
+                                <div class="accordion-body">
+                                {{Important_links.CharitableGivin}}
+                                </div>
+                              </div>
+                            </div>
+                            <div class="accordion-item">
+                              <h2 class="accordion-header" id="headingSix">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
+                                  Tour and Prices
+                                </button>
+                              </h2>
+                              <div id="collapseSix" class="accordion-collapse collapse" aria-labelledby="headingSix" data-bs-parent="#accordionExample2">
+                                <div class="accordion-body">
+                                  {{Important_links.TourandPrices}}
+
+                                </div>
+                              </div>
+                            </div>
+                            <div class="accordion-item">
+                              <h2 class="accordion-header" id="headingSeven">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSeven" aria-expanded="false" aria-controls="collapseSeven">
+                                  Children Policy  <i class='bx bx-chevron-down'></i>
+
+                                </button>
+                              </h2>
+                              <div id="collapseSeven" class="accordion-collapse collapse" aria-labelledby="headingSeven" data-bs-parent="#accordionExample2">
+                                <div class="accordion-body">
+                                                        {{Important_links.ChildrenPolicy}} </div>
+                              </div>
+                            </div>
+                            <div class="accordion-item">
+                              <h2 class="accordion-header" id="headingEight">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseEight" aria-expanded="false" aria-controls="collapseEight">
+                                      Deposit and Payment<i class='bx bx-chevron-down'></i>
+                                </button>
+                              </h2>
+                              <div id="collapseEight" class="accordion-collapse collapse" aria-labelledby="headingEight" data-bs-parent="#accordionExample2">
+                                <div class="accordion-body">
+                                                                  {{Important_links.DepositandPayment}}    </div>
+                              </div>
+                            </div>
+                          </div>
+                       </div>
+                       <div class="accordion-box pt-40">
+
+                        <div class="accordion" id="accordionExample3">
+                            <div class="accordion-item">
+                              <h2 class="accordion-header" id="headingNine">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseNine" aria-expanded="true" aria-controls="collapseNine">
+                                   Tour Voucher <i class='bx bx-chevron-down'></i>
+                                </button>
+                              </h2>
+                              <div id="collapseNine" class="accordion-collapse collapse" aria-labelledby="headingNine" data-bs-parent="#accordionExample3">
+                                <div class="accordion-body">
+                                                                    {{Important_links.TourVoucher}}  </div>
+                              </div>
+                            </div>
+                            <div class="accordion-item">
+                              <h2 class="accordion-header" id="headingTen">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTen" aria-expanded="false" aria-controls="collapseTen">
+                                    Cancellation Policy <i class='bx bx-chevron-down'></i>
+                                </button>
+                              </h2>
+                              <div id="collapseTen" class="accordion-collapse collapse" aria-labelledby="headingTen" data-bs-parent="#accordionExample3">
+                                <div class="accordion-body">
+                                                  {{Important_links.CancellationPolicy}}   </div>
+                              </div>
+                            </div>
+                            <div class="accordion-item">
+                              <h2 class="accordion-header" id="headingEleven">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseEleven" aria-expanded="false" aria-controls="collapseEleven">
+                                    Emergency Cancellation Policy<i class='bx bx-chevron-down'></i>
+                                </button>
+                              </h2>
+                              <div id="collapseEleven" class="accordion-collapse collapse" aria-labelledby="headingEleven" data-bs-parent="#accordionExample3">
+                                <div class="accordion-body">
+                                   {{Important_links.EmergencyCancellationPolicy}}
+                                </div>
+                              </div>
+                            </div>
+
+                            </div>
+                          </div>
+                       </div>
+                             {% endfor %}
+
+                    </div>
+                </div>
+
+           </div>
+        </div>
+    </div>
+
+     <!-- ===============  faq wrapper end =============== -->
+    <!-- ===============  Newsletter area start =============== -->
+    <div class="newsletter-area pt-120">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 col-md-12">
+                    <div class="newsletter-wrapper">
+                        <h2>Subscribe To Our Newsletter
+                            For Latest Update</h2>
+
+                        <form>
+                            <div class="input-group newsletter-input">
+                                <input type="text" class="form-control" placeholder="Enter Your Email"
+                                    aria-label="Recipient's username" aria-describedby="button-addon2">
+                                <button class="btn btn-outline-secondary" type="button" id="button-addon2">Subscribe</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+     <!-- ===============  Newsletter area end =============== -->
+
+    <!-- ==============  Footer area start================= -->
+{% endblock body%}

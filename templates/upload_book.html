@@ -1,0 +1,44 @@
+
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+{% load bootstrap4 %}
+{% block body %}
+
+<!-- Breadcrumb Area Start -->
+<section class="peulis-breadcrumb-area">
+  <div class="breadcrumb-top">
+     <div class="container">
+        <div class="col-lg-12">
+           <div class="breadcrumb-box">
+              <h2>makeatrip</h2>
+               <ul class="breadcrumb-inn">
+                 <li><a href="{% url 'project:index'%}">Home</a></li>
+                 <li class="active"><a href="{% url 'project:index'%}">makeatrip</a></li>
+               </ul>
+           </div>
+        </div>
+     </div>
+  </div>
+</section>
+<!-- Breadcrumb Area End -->
+<!-- Notfound Area Start -->
+<section class="peulis-notfound-area section_70">
+   <div class="container">
+      <div class="row">
+         <div class="col-md-12">
+            <div class="notfound-box">
+               <h3>makeatrip</h3>
+               <form method="post" enctype="multipart/form-data">
+                 {% csrf_token %}
+                 {% bootstrap_form form %}
+
+                 <button type="submit" class="btn btn-primary">Book Now</button>
+            </div>
+         </div>
+      </div>
+   </div>
+</section>
+<!-- Notfound Area End -->
+
+
+{% endblock %}

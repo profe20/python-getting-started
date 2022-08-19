@@ -1,0 +1,145 @@
+{% extends "base.html" %}
+{% block body %}
+{% load static %}
+
+
+<!-- ===============  breadcrumb area start =============== -->
+<div class="breadcrumb-area">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12">
+                <div class="breadcrumb-wrap">
+                    <h2>About Us</h2>
+                    <ul class="breadcrumb-links">
+                        <li>
+                            <a href="{% url 'Post:index'%}">Home</a>
+                            <i class="bx bx-chevron-right"></i>
+                        </li>
+                        <li>About Us</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- ===============  breadcrumb area end =============== -->
+
+<!-- ===============  About wrapper area start =============== -->
+<div class="about-wrapper mt-120">
+    <div class="container">
+        <div class="row">
+            {% for about in object_list %}
+            <div class="col-lg-7 col-md-12">
+                <div class="about-wrapper-left">
+                    <div class="about-img wow fadeInLeft animated" data-wow-delay="0ms" data-wow-duration="1500ms">
+                        <img src="{{about.Who_image.url}}.png" alt="" class="img-fluid">
+                    </div>
+                    <div class="about-video wow fadeInUp animated" data-wow-delay="300ms" data-wow-duration="1500ms">
+                         <img src="{{about.Who_image.url}}" alt="" class="img-fluid">
+
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-5 col-md-12">
+                <div class="about-wrapper-right section-head head-left">
+                    <h5>About TourX</h5>
+                    <h2>The Best Travel Agency
+                        Company.</h2>
+                    <p>{{about.Who_We_Are|safe}}</p>
+
+
+                    <div class="about-img wow fadeInLeft animated" data-wow-delay="0ms" data-wow-duration="1500ms">
+                        <img src="{% static  'assets/images/alfriendvoyage.jpg'%}.png" alt="" class="img-fluid">
+                    </div>
+                    <div class="about-video wow fadeInUp animated" data-wow-delay="300ms" data-wow-duration="1500ms">
+                         <img src="{% static  'assets/images/alfriendvoyage.jpg'%}" alt="" class="img-fluid">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+<!-- ===============  About wrapper area end =============== -->
+
+
+
+<!-- =============== achievement area start =============== -->
+<div class="achievement-area p-80 mt-120">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12">
+                <div class="section-head pb-30">
+                    <h5>Why TourX</h5>
+                    <h2>Why you are travel with tourx</h2>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-3 col-md-6 col-sm-6 wow fadeInLeft animated"  data-wow-duration="1500ms" data-wow-delay="0ms" >
+                <div class="achievement-card mt-30">
+                    <div class="achievement-icon">
+                        <i class="flaticon-guide"></i>
+                    </div>
+                    <h5>2000+ Our worldwide
+                        guide</h5>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-6 wow fadeInLeft animated"  data-wow-duration="1500ms" data-wow-delay="200ms" >
+                <div class="achievement-card mt-30">
+                    <div class="achievement-icon">
+                        <i class="flaticon-trust"></i>
+                    </div>
+                    <h5>100% trusted travel agency</h5>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-6 wow fadeInLeft animated"  data-wow-duration="1500ms" data-wow-delay="400ms" >
+                <div class="achievement-card mt-30">
+                    <div class="achievement-icon">
+                        <i class="flaticon-experience"></i>
+                    </div>
+                    <h5>10+ year of travel experience</h5>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-6 wow fadeInLeft animated"  data-wow-duration="1500ms" data-wow-delay="600ms" >
+                <div class="achievement-card mt-30">
+                    <div class="achievement-icon">
+                        <i class="flaticon-traveller"></i>
+                    </div>
+                    <h5>90% of our traveller happy</h5>
+                </div>
+            </div>
+        </div>
+    </div>
+ </div>
+ <!-- =============== achievement area end =============== -->
+
+
+
+<!-- ===============  Newsletter area start =============== -->
+<div class="newsletter-area pt-120">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 col-md-12">
+                <div class="newsletter-wrapper">
+                    <h2>Subscribe To Our Newsletter
+                        For Latest Update</h2>
+
+                    <form>
+                        <div class="input-group newsletter-input">
+                            <input type="text" class="form-control" placeholder="Enter Your Email"
+                                aria-label="Recipient's username" aria-describedby="button-addon2">
+                            <button class="btn btn-outline-secondary" type="button" id="button-addon2">Subscribe</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+ <!-- ===============  Newsletter area end =============== -->
+
+
+
+{% endblock body%}

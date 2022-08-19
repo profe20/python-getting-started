@@ -1,0 +1,311 @@
+{% load static %}
+{% load bootstrap4 %}
+
+
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="Peulis | Travel Agency & Tourism HTML Template">
+    <meta name="keyword" content="travel, tourism, agency, tourist">
+    <meta name="author" content="Themescare">
+    <!-- Title -->
+    <title>secrets-egypt.com</title>
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon/favicon-32x32.png">
+    <!--Bootstrap css-->
+    <link rel="stylesheet" href="{% static  'assets/css/bootstrap.css'%}">
+    <!--Font Awesome css-->
+
+    <link rel="stylesheet" href=" {% static  'assets/css/font-awesome.min.css'%}">
+    <!--Flaticon css-->
+
+    <link rel="stylesheet" href="{% static  'assets/flaticon/flaticon.css'%}">
+    <!--Animatedheadline css-->
+
+    <link rel="stylesheet" href="{% static   'assets/css/jquery.animatedheadline.css'%}">
+    <!--Magnific css-->
+
+    <link rel="stylesheet" href=" {% static  'assets/css/magnific-popup.css'%}">
+    <!--Owl-Carousel css-->
+    <link rel="stylesheet" href=" {% static  'assets/css/owl.carousel.min.css'%}">
+    <link rel="stylesheet" href=" {% static  'assets/css/owl.theme.default.min.css'%}">
+
+
+    <!--Animate css-->
+    <link rel="stylesheet" href=" {% static  'assets/css/animate.min.css'%}">
+    <!--Datepicker css-->
+    <link rel="stylesheet" href=" {% static  'assets/css/jquery.datepicker.css'%}">
+
+    <!--Nice Select css-->
+    <link rel="stylesheet" href=" {% static  'assets/css/nice-select.css'%}">
+
+    <!--Slicknav css-->
+    <link rel="stylesheet" href=" {% static  'assets/css/slicknav.min.css'%}">
+
+    <!--Site Main Style css-->
+    <link rel="stylesheet" href="  {% static  'assets/css/style.css' %}">
+   <link rel="stylesheet" href="{% static 'assets/css/responsive.css' %}">
+
+<body>
+
+
+    <!--Preloader Start-->
+    <div class="preloader">
+        <div class="loading-text">
+            <span class="loading-text-words" data-preloader="L">L</span>
+            <span class="loading-text-words" data-preloader="O">O</span>
+            <span class="loading-text-words" data-preloader="A">A</span>
+            <span class="loading-text-words" data-preloader="D">D</span>
+            <span class="loading-text-words" data-preloader="I">I</span>
+            <span class="loading-text-words" data-preloader="N">N</span>
+            <span class="loading-text-words" data-preloader="G">G</span>
+        </div>
+    </div>
+    <!--Preloader End-->
+
+
+    <!-- Header Area Start -->
+    <header class="peulis-header-area">
+        <!-- Header Top Area Start -->
+        <div class="header-top-area">
+            <div class="container">
+               <div class="row">
+                 {% for Info in Infoo %}
+                    <div class="col-lg-6 col-sm-6">
+                        <div class="header-top-left">
+                            <p>
+                                <i class="fa fa-envelope"></i>
+                                {{Info.email}}
+                            </p>
+                            <p>
+                                <i class="fa fa-phone"></i>
+                              {{Info.phone_number}}
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-sm-6">
+                        <div class="header-top-right">
+                            <div class="header-top-social">
+                                <ul>
+                                    <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-pinterest"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-instagram"></i></a></li>
+                                </ul>
+                            </div>
+                            <div class="header-top-auth">
+                                <ul>
+                                    <li><i class="fa fa-user"></i></li>
+                                   {% if request.user.is_authenticated %}
+                                     <li><a href="{% url 'logout'%}">logout  </a></li>|
+                                     <li><a href="  {% url 'accounts:profile_edit'%}">profile_edit </a></li>
+
+                                      {% else %}
+
+                                    <li class="separator"><a href="{% url 'accounts:user_login'%}">Login</a></li>
+                                    <li><a href="{% url 'accounts:signup'%}">Register</a></li>
+                                    {% endif %}
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Header Top Area End -->
+
+        <!-- Main Header Area Start -->
+        <div class="main-header-area">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="header_inn"style="
+    height: 85px;
+">
+                            <div class="row">
+                                <div class="col-lg-3">
+                                    <div class="site-logo">
+                                        <a href="index.html">
+                                            <img src="{% static 'assets/img/logo.png'%}"  alt="Peulis" />
+
+                                        </a>
+                                    </div>
+                                    <!-- Responsive Menu Start -->
+                                    <div class="peulis-responsive-menu"></div>
+                                    <!-- Responsive Menu End -->
+                                </div>
+                                <div class="col-lg-7">
+                                    <div class="mainmenu">
+                                        <nav>
+                                            <ul id="navigation_menu">
+                                                <li class="active"><a href="{% url 'project:index'%}">Home</a></li>
+                                                <li>
+                                                    <a href="#">Pages</a>
+                                                    <ul>
+                                                        <li><a href="{% url 'about:aboutList'%}">About Us</a></li>
+                                                        <li><a href="{% url 'about:gallery_List' %}">Gallery</a></li>
+                                                        <li><a href="{% url 'accounts:signup'%}">Register</a></li>
+                                                        <li><a href="{% url 'accounts:user_login'%}">Login</a></li>
+                                                    </ul>
+                                                </li>
+                                                <li>
+                                                    <a href="{% url 'nilecruise:cnilecruise_list'%}">Tour Nile Cruise</a>
+
+                                                </li>
+                                                <li>
+
+                                                </li>
+                                                <li>
+                                                    <a href="#">tours</a>
+                                                    <ul>
+                                                        <li><a href="{% url 'packages:packages_list'%}">Tour packagese</a></li>
+                                                        <li><a href="{% url 'luxortour:luxortour_list'%}">Tour luxor</a></li>
+                                                        <li><a href="{% url 'aswan:aswan_list'%}">Tour aswan</a></li>
+                                                        <li><a href="{% url 'cairotour:cairotour_list'%}">Tour cairo</a></li>
+                                                        <li><a href="{% url 'makeatrip:upload_book'%}">Makeatrip</a></li>
+
+
+                                                    </ul>
+                                                </li>
+                                                <li>
+                                                    <a href="{% url 'project:all_posts' %}">Blog</a>
+
+
+                                                <li><a href="{% url 'contact:contact' %}">Contact</a></li>
+                                            </ul>
+                                        </nav>
+                                    </div>
+                                </div>
+                                <div class="col-lg-2">
+                                    <div class="header_action">
+                                        <ul>
+                                            <li class="header-search">
+                                                <a href="#" class="search-btn">
+                                                    <i class="fa fa-search"></i>
+                                                </a>
+                                                <div class="search-box search-elem">
+                                                    <span class="search-close"></span>
+                                                    <div class="inner row">
+                                                        <form>
+                                                            <input type="search" placeholder="Type to Search...">
+                                                            <button type="submit"><i class="fa fa-search"></i></button>
+                                                        </form>
+                                                    </div>
+                                                </div>
+                                            </li>
+
+                                            <li><a href="#" id="sidenav-toggle"><i class="fa fa-bars"></i></a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Main Header Area End -->
+    </header>
+    <!-- Header Area End -->
+
+
+
+
+
+    {% block body %}
+    {% endblock body%}
+
+<script src="https://apps.elfsight.com/p/platform.js" defer></script>
+    <div class="elfsight-app-2c4946e5-0acd-4fd4-93cd-faeffac64987"></div>
+   <!-- Sidebar Navigation Start -->
+    <footer class="peulis-footer-area">
+        <div class="footer-top-area">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-3 col-sm-6">
+                        <div class="single-footer">
+                            <p>ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.ipsum dolor sit amet, consectetur </p>
+                            <div class="footer-logo">
+                                <a href="{% url 'project:index'%}">
+                                    <img src="{% static 'assets/img/ee.png'%}" alt="Peulis" />
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-sm-6">
+                        <div class="single-footer">
+                            <h3>About Us</h3>
+                            <ul>
+                                <li><a href="#">Why Us</a></li>
+                                <li><a href="#">Why Touring</a></li>
+                                <li><a href="#">Reviews</a></li>
+                                <li><a href="#">Travel Insurance</a></li>
+                                <li><a href="#">Programme</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-sm-6">
+                        <div class="single-footer">
+                            <h3>Support</h3>
+                            <ul>
+                                <li><a href="#">Account</a></li>
+                                <li><a href="#">Client Area</a></li>
+                                <li><a href="#">Privacy & Policy</a></li>
+                                <li><a href="#">Author Hangout</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-sm-6">
+                        <div class="single-footer">
+                            <h3>Pay Safely</h3>
+                            <p>Eiusmod tempor incididunt utbor etian dolm magna aliqua enim minim</p>
+                            <div class="payment_image">
+                                <img src="{% static  'assets/img/v1.png'%}" alt="Payment Card" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+<!-- Sidebar Navigation End -->
+    <!--Jquery js-->
+
+
+    <script src="{% static 'assets/js/jquery.min.js'%}"></script>
+    <!-- Popper JS -->
+
+    <script src="{% static 'assets/js/popper.min.js'%}"></script>
+    <!--Bootstrap js-->
+
+    <script src=" {% static 'assets/js/bootstrap.min.js'%}"></script>
+    <!--Owl-Carousel js-->
+
+    <script src="{% static 'assets/js/owl.carousel.min.js'%}"></script>
+    <!--Animatedheadline js-->
+
+    <script src="{% static 'assets/js/jquery.animatedheadline.min.js'%}"></script>
+    <!--Slicknav js-->
+
+    <script src=" {% static 'assets/js/jquery.slicknav.min.js'%}"></script>
+    <!--Magnific js-->
+
+    <script src="{% static 'assets/js/jquery.magnific-popup.min.js'%}"></script>
+    <!-- Datepicker -->
+
+    <script src="{% static 'assets/js/jquery.datepicker.min.js'%}"></script>
+    <!--Nice Select js-->
+
+
+    <script src="{% static 'assets/js/jquery.nice-select.min.js'%}"></script>
+    <!-- Way Points JS -->
+
+    <script src="{% static 'assets/js/waypoints-min.js'%}"></script>
+    <!--Main js-->
+    <script src="{% static 'assets/js/main.js'%}"></script>
+    </body
+</html>

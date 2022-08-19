@@ -1,0 +1,166 @@
+{% extends 'base.html' %}
+{% block body %}
+
+
+<!-- ===============  header area end =============== -->
+
+<!-- ===============  breadcrumb area start =============== -->
+<div class="breadcrumb-area">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12">
+                <div class="breadcrumb-wrap">
+                    <h2>Contact US</h2>
+                    <ul class="breadcrumb-links">
+                        <li>
+                            <a href="{% url 'Post:index'%}">Home</a>
+                            <i class="bx bx-chevron-right"></i>
+                        </li>
+                        <li>Contact Us</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- ===============  breadcrumb area end =============== -->
+
+<div class="contact-wrapper pt-90">
+    <div class="contact-cards">
+        <div class="container">
+            <div class="row">
+                 {% for Info in all_Info %}
+                <div class="col-lg-4 col-md-6 col-sm-12">
+                    <div class="contact-card">
+                        <div class="contact-icon"><i class="flaticon-arrival"></i>
+                        </div>
+                        <div class="contact-info">
+                            <h5>Address</h5>
+                            <p>{{Info.place}}</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 col-sm-12">
+                    <div class="contact-card">
+                        <div class="contact-icon"><i class="flaticon-customer-service"></i>
+
+                        </div>
+                        <div class="contact-info">
+                            <h5>Email & Phone</h5>
+                            <p>  {{Info.phone_number}}
+                                {{Info.email}}</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6 col-sm-12">
+                    <div class="contact-card">
+                        <div class="contact-icon"><i class="flaticon-thumbs-up"></i>
+                        </div>
+                        <div class="contact-info">
+                            <h5>Social Media</h5>
+                            <ul class="contact-icons">
+                                <li><a href="{{Info.instagram}}"><i class='bx bxl-instagram'></i></a></li>
+                                <li><a href="{{Info.facebook}}"><i class='bx bxl-facebook' ></i></a></li>
+                                <li><a href="{{Info.twitter}}"><i class='bx bxl-twitter' ></i></a></li>
+                                <li><a href="{{Info.WhatsApp}"><i class='bx bxl-whatsapp' ></i></a></li>
+                            </ul>
+                        </div>
+                    {% endfor %}
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+   <div class="container">
+    <div class="contact-inputs pt-120">
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="contact-details">
+                    <h5 class="contact-d-head">Get In Touch</h5>
+                    <p>Suspendisse dolor risus, congue ac diam id, viverra facilisis dolor. Cras nec purus sagittis, varius tortor at, maximus erat. Sed at tellus id tellus lobortis dictum. Mauris dignissim, turpis vitae ullamcorper fermentum, sapien arcu aliquam arcu, in viverra quam est ac ex. Cras sed lectus eu.
+                    </p>
+                    <ul class="office-clock">
+                        <li>
+                            <div class="clock-icon"><i class='flaticon-clock-1'></i></div>
+                            <div class="clock-info">
+                                <h5>Open Hour</h5>
+                                <p>Sat - Thu At <br> 10.00Am to 10.00PM</p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="clock-icon"><i class='flaticon-clock-1'></i></div>
+                            <div class="clock-info">
+                                <h5>Close Hour</h5>
+                                <p>Friday Office Close</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="contact-form">
+                  <form method="post">
+                    {% csrf_token %}
+                    <div class="form-group">
+                        {% if messages %}
+                          {% for message in messages %}
+                          <span{% if message.tags %} class="{{ message.tags }}"{% endif %} style="color: green">{{ message }}</span>
+                          {% endfor %}
+                              {% endif %}
+                        <h5 class="contact-d-head">Contact Us</h5>
+                        <div class="row">
+                            <div class="col-lg-6">
+                              	{{ forms.name }}
+                            </div>
+                            <div class="col-lg-6">
+                              		{{ forms.subject }}
+                            </div>
+                            <div class="col-lg-6">
+                                	{{ forms.email }}
+                            </div>
+                            <div class="col-lg-6">
+                                  	{{ forms.Phone }}
+                            </div>
+                            <div class="col-lg-12">
+                                	{{ forms.message }}
+                            </div>
+                            <div class="col-lg-12">
+                                <input type="submit" value="Submit Now">
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+   </div>
+</div>
+
+<!-- ===============  Newsletter area start =============== -->
+<div class="newsletter-area pt-120">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 col-md-12">
+                <div class="newsletter-wrapper">
+                    <h2>Subscribe To Our Newsletter
+                        For Latest Update</h2>
+
+                    <form>
+                        <div class="input-group newsletter-input">
+                            <input type="text" class="form-control" placeholder="Enter Your Email"
+                                aria-label="Recipient's username" aria-describedby="button-addon2">
+                            <button class="btn btn-outline-secondary" type="button" id="button-addon2">Subscribe</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+ <!-- ===============  Newsletter area end =============== -->
+
+
+
+  {% endblock body %}

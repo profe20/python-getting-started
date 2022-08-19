@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+{% extends "base.html" %}
+{% block body %}
+{% load bootstrap4 %}
+{% load static %}
+!-- Breadcrumb Area Start -->
+<section class="peulis-breadcrumb-area">
+  <div class="breadcrumb-top">
+     <div class="container">
+        <div class="col-lg-12">
+           <div class="breadcrumb-box">
+              <h2>fddsdfs</h2>
+              <ul class="breadcrumb-inn">
+                 <li><a href="">Home</a></li>
+                 <li class="active"><a href="#">Gallery</a></li>
+              </ul>
+           </div>
+        </div>
+     </div>
+  </div>
+</section>
+<!-- Breadcrumb Area End -->
+
+
+<html lang="en"dir="rtl" >
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Title</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+      <style>
+      .fakeimg {
+        height: 200px;
+        background: #aaa;
+      }
+      </style>
+    </head>
+<body>
+
+<div class="container" style="margin-top:30px">
+  <div class="row">
+    <div class="site-heading">
+        <h2>عن المجلة</h2>
+        <h5>تصدر كلية السياحة والفنادق ، جامعة الأقصر، مجلة علمية محكمة متخصصة باسم: "المجلة الدولية لإدارة السياحة والضيافة</h5>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-sm-4 ">
+    <div class="row">
+          <div class="col-2">
+            <div class="header_action">
+                <ul>
+                    <li class="header-search">
+                        <a href="#" class="search-btn">
+                            <i class="fa fa-search"></i>
+                        </a>
+                        <div class="search-box search-elem">
+                            <span class="search-close"></span>
+                            <div class="inner row">
+                                 <form method = "GET" class="form-inline ">
+                                   <input type="search" id="site-search" name="q"
+                                                               aria-label="Search through site content">
+
+                                    <button type="submit"><i class="fa fa-search"></i></button>
+                                </form>
+                            </div>
+                       </div>
+                     </li>
+                   </ul>
+                     </div>
+                  </div>
+            </div>
+          <div class="col-10">
+            <ul class="list-group" align="right">
+                        <h3 align="center">تصفية</h3>
+                        <form method="get">
+
+                       {% csrf_token %}
+                       {% bootstrap_form myfilter.form %}
+
+                            <input type="submit" value="بحث" class=" btn btn-primary boxed-btn3 w-100 mt-2" >
+                        </form>
+                    </ul>
+
+          </div>
+
+        </div>
+
+
+<div class="col-sm-8">
+<section class="peulis-guides-area section_70">
+  <br/>
+  <br/>
+  <div class="row">
+      <div class="col-6">
+           <div ><img src="../static/assets/img/magazine.jpg"/></div>
+      </div>
+     <div class="col-6">
+  <h3 align="center">الأقسام</h3>
+           <ul align="right">
+               <li>
+               <h4> <a href="{% url "story:story_list" %}">الكل</a></h4>
+               </li>
+           {% for c in categories %}
+               <li>
+              <h4> <a href="{{ c.get_absolute_url }}">{{ c.name }}</a></h4>
+               </li>
+           {% endfor %}
+           </ul>
+
+      </div>
+
+    </div>
+  <br/>
+
+
+
+</section>
+</div>
+
+</div>
+<div class="row">
+<div id="" class="col-lg-12 Producthide Product{{Product.Category.id}}">
+</div>
+<div class="col-12">
+ <table class="table table-hover mb-0" style="text-align:right;">
+
+ <thead class="thead-dark">
+   <tr>
+       <th>العنوان</th>
+        <th>المؤلف</th>
+     <th>تحميل</th>
+     <th>المزيد</th>
+     <th>غلاف</th>
+   </tr>
+ </thead>
+ <tbody>
+   {% for x in story %}
+<tr>
+       <td>{{ x.title|safe|truncatewords_html:50 }}</td>
+      <td>{{ x.name }}</td>
+       <td>
+         <a href="{{ x.Authorpdf.url }}" class="btn btn-primary btn-sm" target="_blank">
+           PDF
+         </a>
+       </td>
+         <td><h6> <a href="{{ x.get_absolute_url }}">المزيد</a></h6><hr></td>
+       <td>
+         {% if makeatrip.cover %}
+           <img src="{{ makeatrip.cover.url }}" alt="{{x.title}}}" style="width:100px;">
+         {% else %}
+           <span class="text-muted">No cover</span>
+         {% endif %}
+       </td>
+     </tr>
+   {% endfor %}
+
+ </tbody>
+</table>
+</div>
+</div>
+        <div class="row">
+            <div class="col-lg-12" >
+                <div class="pagination-box-row">
+                    <ul class="pagination" style="text-align:center; justify-content:center;" >
+                        <li class="active" ><a href="#">1</a></li>
+                        <li><a href="#">2</a></li>
+                        <li><a href="#">3</a></li>
+                        <li><a href="#"><i class="fa fa-angle-double-right"></i></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+</body>
+</html>
+{% endblock body%}

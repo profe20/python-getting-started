@@ -1,0 +1,178 @@
+
+{% extends "base.html" %}
+{% block body %}
+<!-- Breadcrumb Area Start -->
+<section class="peulis-breadcrumb-area">
+   <div class="breadcrumb-top">
+      <div class="container">
+         <div class="col-lg-12">
+            <div class="breadcrumb-box">
+               <h2>Blog Details</h2>
+                <ul class="breadcrumb-inn">
+                  <li><a href="{% url 'project:index'%}">Home</a></li>
+                  <li class="active"><a href="#">Blog Details</a></li>
+                </ul>
+            </div>
+         </div>
+      </div>
+   </div>
+</section>
+<!-- Breadcrumb Area End -->
+
+
+      <section class="peulis-blog-page-area section_70">
+         <div class="container">
+            <div class="row">
+               <div class="col-lg-8">
+                  <div class="blog-page-left">
+                     <div class="single-blog-item blog-single-page">
+                        <div class="blog-image">
+                           <img src="{{post.image.url}}" alt="blog" />
+                        </div>
+                        <div class="blog-desc">
+                           <div class="post-meta">
+                              <p class="date">20 feb, 2019</p>
+                              <p>By <a href="#">Admin</a></p>
+                              <p><a href="#">3 comments</a></p>
+                           </div>
+                           <h3>{{post}}</h3>
+                           <p>{{post.content|safe}}</p>
+                           <div class="blog-inner-image">
+                              <div class="row">
+                                 <div class="col-lg-6 col-sm-6">
+                                    <div class="destination-desc-img">
+                                       {% if post.image %}
+                                       <img src="{{post.image1.url}}" alt="gallery 1">
+                                        {% endif %}
+                                    </div>
+                                 </div>
+                                 <div class="col-lg-6 col-sm-6">
+                                    <div class="destination-desc-img">
+                                       <img src="{{post.image2.url}}" alt="gallery 1">
+                                    </div>
+                                 </div>
+                              </div>
+                           </div>
+                           <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).</p>
+                           <div class="destination-desc">
+                              <blockquote>
+                                 <p>Cillum aute nisi sunt quis duis. Ad anim non velit nulla elit est excepteur proident excepteur laboris. Elit consectetur culpa enim aliquip tempor.</p>
+                              </blockquote>
+                           </div>
+                           <p>Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p>
+                        </div>
+                     </div>
+                     <!-- Post Share Box Start -->
+                     <div class="post-share-box">
+                        <div class="row">
+                           <div class="col-lg-6  col-sm-6 no-pad-left">
+                              <div class="post-share-left">
+                                 <p>
+                                    tag :
+                                    <a href="#">business ,</a>
+                                    <a href="#">finance</a>
+                                 </p>
+                              </div>
+                           </div>
+                           <div class="col-lg-6  col-sm-6">
+                              <div class="post-share-right">
+                                 <p>Share :</p>
+                                 <a href="#" class="post_fb">
+                                 <i class="fa fa-facebook"></i>
+                                 </a>
+                                 <a href="#" class="post_twt">
+                                 <i class="fa fa-twitter"></i>
+                                 </a>
+                                 <a href="#" class="post_gl">
+                                 <i class="fa fa-google-plus"></i>
+                                 </a>
+                                 <a href="#" class="post_lknd">
+                                 <i class="fa fa-linkedin"></i>
+                                 </a>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                     <!-- Post Share Box Start -->
+
+                     <!-- Post Comment Start -->
+                     <div class="peulis-comment-list">
+                        <div class="comment-group-title">
+                           <h3>Comments (03)</h3>
+                           <div id="disqus_thread"></div>
+                      </div>
+                     </div>
+                     <!-- Post Comment End -->
+
+                     <!-- Post Comment Form Start -->
+                     <div class="peulis-leave-comment">
+                        <h3></h3>
+
+
+                     </div>
+                     <!-- Post Comment Form End -->
+                  </div>
+               </div>
+               <div class="col-lg-4">
+                  <div class="sidebar-widget">
+                     <div class="single-sidebar">
+                        <form>
+                           <input type="search" placeholder="Search..." />
+                           <button type="submit"><i class="fa fa-search"></i></button>
+                        </form>
+                     </div>
+                     <div class="single-sidebar">
+                        <h3>Categories</h3>
+                        <ul class="category">
+                           <li><a href="#">Best Package</a></li>
+                           <li><a href="#">Destinations</a></li>
+                           <li><a href="#">Discovery</a></li>
+                           <li><a href="#">Travel</a></li>
+                           <li><a href="#">Trendy</a></li>
+                           <li><a href="#">Popular</a></li>
+                           <li><a href="#">Events</a></li>
+                        </ul>
+                     </div>
+                     <div class="single-sidebar">
+                        <h3>Tags</h3>
+                        <ul class="Tags-catagory">
+                           <li><a href="#">Fashion</a></li>
+                           <li><a href="#">Sea</a></li>
+                           <li><a href="#">Mountain</a></li>
+                           <li><a href="#">Enjoy</a></li>
+                           <li><a href="#">Hot</a></li>
+                           <li><a href="#">Popular</a></li>
+                           <li><a href="#">Events</a></li>
+                        </ul>
+                     </div>
+
+
+
+                  </div>
+               </div>
+            </div>
+         </div>
+      </section>
+
+      <script>
+         /**
+          *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+          *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables    */
+
+         var disqus_config = function () {
+            this.page.url = PAGE_URL = " http://127.0.0.1:8000/{% url 'project:post' post.id %}";
+            this.page.identifier = PAGE_IDENTIFIER;
+            "{{Post.title}}";
+         };
+
+         (function () { // DON'T EDIT BELOW THIS LINE
+            var d = document,
+               s = d.createElement('script');
+            s.src = 'https://secretsof-egypt.disqus.com/embed.js';
+            s.setAttribute('data-timestamp', +new Date());
+            (d.head || d.body).appendChild(s);
+         })();
+      </script>
+      <noscript> <a href="#">y</a></noscript>
+
+      {% endblock body%}

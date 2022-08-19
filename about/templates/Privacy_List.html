@@ -1,0 +1,82 @@
+{% extends "base.html" %}
+{% block body %}
+{% load static %}
+
+
+    <!-- Breadcrumb Area Start -->
+    <section class="peulis-breadcrumb-area">
+      <div class="breadcrumb-top">
+          <div class="container">
+              <div class="col-lg-12">
+                  <div class="breadcrumb-box">
+                      <h2>Privacy & Policy</h2>
+                      <ul class="breadcrumb-inn">
+                          <li><a href="{% url 'project:index'%}">Home</a></li>
+                          <li class="active"><a href="#">Privacy & Policy</a></li>
+                      </ul>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </section>
+  <!-- Breadcrumb Area End -->
+
+
+  <!-- About Page Start -->
+  <section class="peulis-about-page section_70">
+      <div class="container">
+          <div class="row">
+            {% for Privacy in Privacy_List %}
+              <div class="col-lg-6">
+                  <div class="about-page-left">
+                      <h3>Privacy & Policy</h3>
+                    
+                      <p>{{Privacy.Privacy_Text}}</p>
+                      <div class="about-signature">
+                          <div class="signature-left">
+                          </div>
+                          <div class="signature-right">
+                              <h3></h3>
+                              <p></p>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+  {% endfor %}
+          </div>
+      </div>
+  </section>
+  <!-- About Page End -->
+
+
+
+  <!-- About Page Start -->
+  <section class="peulis-about-page section_70">
+      <div class="container">
+          <div class="row">
+            {% for Privacy in Privacy_List %}
+              <div class="col-lg-6">
+                  <div class="about-page-left">
+                      <h3>Privacy & Policy</h3>
+
+                      <p>{{Privacy.Privacy_Text2}}</p>
+                      <div class="about-signature">
+                          <div class="signature-left">
+                          </div>
+                          <div class="signature-right">
+                              <h3></h3>
+                              <p></p>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+  {% endfor %}
+          </div>
+      </div>
+  </section>
+  <!-- About Page End -->
+
+
+
+
+{% endblock body%}

@@ -1,0 +1,78 @@
+{% extends "base.html" %}
+{% load static %}
+{% block body %}
+{% load crispy_forms_tags %}
+{% load bootstrap4 %}
+
+<!-- ===============  breadcrumb area start =============== -->
+<div class="breadcrumb-area">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12">
+                <div class="breadcrumb-wrap">
+                    <h2>thank_you</h2>
+                    <ul class="breadcrumb-links">
+                        <li>
+                            <a href="{% url 'Post:index'%}">Home</a>
+                            <i class="bx bx-chevron-right"></i>
+                        </li>
+                        <li>thank_you</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+    <div class="package-details-wrapper pt-120">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8">
+                    <div class="package-details">
+                        <div class="package-thumb">
+
+
+                        </div>
+                        <div class="package-header">
+                            <div class="package-title">
+                                <h3> Booking Done,
+ Thank you—we have received your request and one of our travel experts will contact you within 24 hours to complete payment process.
+If you Don’t see a response after 24 hours? Please check your spam folder for a message from Tuya Tours.
+Make sure we will do our best to make your trip unforgettable..</h3>
+                                <strong><i class="flaticon-arrival"></i>
+
+                                </strong>
+                            </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- ===============  Newsletter area start =============== -->
+    <div class="newsletter-area pt-120">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 col-md-12">
+                    <div class="newsletter-wrapper">
+                        <h2>Subscribe To Our Newsletter
+                            For Latest Update</h2>
+
+                        <form>
+                            <div class="input-group newsletter-input">
+                                <input type="text" class="form-control" placeholder="Enter Your Email"
+                                    aria-label="Recipient's username" aria-describedby="button-addon2">
+                                <button class="btn btn-outline-secondary" type="button" id="button-addon2">Subscribe</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+     <!-- ===============  Newsletter area end =============== -->
+
+    <!-- ==============  Footer area start================= -->
+{% endblock body%}
